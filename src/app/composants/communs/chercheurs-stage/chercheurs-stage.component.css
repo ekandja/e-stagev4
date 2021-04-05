@@ -1,0 +1,20 @@
+.chercheurStage{
+  width: 800px;
+  padding-top: 50px;
+  padding-bottom: 40px;
+  margin: 25px auto;
+}
+.pChercheurStage {
+  font-size: 22px;
+  font-weight: bold;
+  color: #252525;
+
+}
+.chercheurQualification{
+  color: #6684F2;
+  cursor: pointer;
+}
+.bgChercheur{
+  background-color: #F9FAFB;
+  pagging:25px
+}

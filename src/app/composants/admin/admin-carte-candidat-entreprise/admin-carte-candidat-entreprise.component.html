@@ -1,0 +1,20 @@
+<div class="bg-light p-3 mb-3">
+  <div class="nomCandidat text-center mt-3" *ngIf="candidat.isEntreprise === false">
+    {{ candidat.prenom}} {{ candidat.nom }}
+  </div>
+  <div class="nomCandidat text-center mt-3" *ngIf="candidat.isEntreprise === true">
+    {{ candidat.nomEntreprise}}
+  </div>
+  <div class="ecoleVille mt-2 text-center" *ngIf="candidat.isEntreprise === false">
+    {{ candidat.etablissement }}
+  </div>
+
+  <div class="ecoleVille text-center">
+    {{ candidat.ville }}
+  </div>
+  <div class="text-center mt-3">
+    <span class="btn btn-sm btnEditerSupprimer"><i class="fas fa-edit text-success mx-2"></i>Modifier</span>
+    <span class="btn btn-sm btnEditerSupprimer btnSupprier"><i class="fas fa-window-close text-danger mx-2"></i>Supprimer</span>
+  </div>
+</div>
+

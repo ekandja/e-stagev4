@@ -1,0 +1,15 @@
+.nomCandidat{
+  color: #7F7F7F;
+  font-weight: bold;
+}
+.ecoleVille{
+  color: #307CAF;
+  font-size: 14px;
+}
+.btnEditerSupprimer{
+  background-color: white;
+  font-size: 12px;
+}
+.btnSupprier{
+  margin-left: 15px;
+}

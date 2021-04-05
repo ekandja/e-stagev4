@@ -1,0 +1,57 @@
+.inputRercherher {
+  height: 65px;
+  margin: 50px auto;
+  padding: 0;
+}
+
+.inputMotCle{
+  width: 575px;
+  height: 55px;
+  border-color: white;
+}
+.btnRechercher{
+  width: 192px;
+  height: 55px;
+  border-radius: 3px;
+  background-color: #544CF9;
+  border-color: #544CF9;
+  color: white;
+}
+
+.inputRercherher {
+  height: 65px;
+  margin: 50px auto;
+  padding: 0;
+}
+
+.inputMotCle{
+  width: 575px;
+  height: 55px;
+  border-color: white;
+}
+.btnRechercher{
+  width: 192px;
+  height: 55px;
+  border-radius: 3px;
+  background-color: #544CF9;
+  border-color: #544CF9;
+  color: white;
+}
+
+.classeInvisible{
+  margin-bottom: 110px;
+}
+.typeActivite{
+  color: white;
+  font-size: 90px;
+  font-family: 'Oswald', sans-serif;
+}
+.typeActivite{
+  color: white;
+  font-size: 90px;
+  font-family: 'Oswald', sans-serif;
+}
+.optionDisplayed{
+  cursor: pointer;
+}
+

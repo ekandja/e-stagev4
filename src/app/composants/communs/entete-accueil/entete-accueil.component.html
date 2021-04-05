@@ -1,0 +1,12 @@
+<div class="bgEntete">
+  <app-menu-haut></app-menu-haut>
+  <div class="invisible classeInvisible"></div>
+  <div class="row">
+    <h2 class="text-center titreTrouvezStage">Trouvez votre stage !</h2>
+  </div>
+  <app-input-recherche (titreAtrouver)="trouverParTitre($event)"  ></app-input-recherche>
+  <div class="invisible">-</div>
+  <div class="typeActivite">{{ offreDemande }}</div>
+</div>
+
+

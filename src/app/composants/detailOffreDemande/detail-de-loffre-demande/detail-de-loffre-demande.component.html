@@ -1,0 +1,78 @@
+<ul class="breadcrumb">
+  <li><a routerLink="/">Accueil></a></li>
+  <li><a routerLink="/detail-offre-demande/{{offreDemandeDetail.type}}/{{ offreDemandeDetail.id }}"></a>{{ offreDemandeDetail.titre }}</li>
+</ul>
+<div class="row cadreOffre">
+  <div class="col-4">
+    <div class="text-center">
+
+      <img src="{{ offreDemandeDetail.utilisateur.logo }}"
+           alt="logo {{ offreDemandeDetail.utilisateur.nomEntreprise }}" *ngIf="offreDemandeDetail.type === 'Offre'">
+      <div class="nomEntreprise"
+           *ngIf="offreDemandeDetail.type === 'Offre'; else etudiant">{{ offreDemandeDetail.utilisateur.nomEntreprise }}</div>
+      <ng-template #etudiant>
+        <div
+          class="nomEntreprise mt-5 nomDemandeur" >{{ offreDemandeDetail.utilisateur.prenom }} {{ offreDemandeDetail.utilisateur.nom }} </div>
+      </ng-template>
+      <div class="ville">{{ offreDemandeDetail.utilisateur.ville }}</div>
+      <div class="region">{{ offreDemandeDetail.utilisateur.region }}</div>
+    </div>
+  </div>
+  <div class="col-8  ">
+    <div class="row">
+      <span class="detailTitre">{{offreDemandeDetail.titre}}</span>
+    </div>
+    <div class="row mt-3">
+      <div class="col-6">
+        <div class="divIntitule"><span class="intitule">Date de début:</span> {{ dateDebut }}</div>
+        <div class="divIntitule"><span class="intitule">Date de fin:</span> {{ dateFin }}</div>
+        <div class="divIntitule"><span class="intitule">Type de stage:</span> {{offreDemandeDetail.typeDeStage}}
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="divIntitule"><span class="intitule">Horaire:</span> {{ offreDemandeDetail.typeDeStage}}</div>
+
+        <div class="divIntitule" *ngIf="offreDemandeDetail.type === 'Offre'"><span class="intitule" >Possibilité d'emploi:</span> {{ emploi }}
+        </div>
+        <div class="divIntitule" *ngIf="offreDemandeDetail.type === 'Offre'"><span class="intitule" >Rémunération:</span> {{ offreDemandeDetail.remuneration }}
+        </div>
+        <div class="divIntitule"><span class="intitule"
+                                       *ngIf="offreDemandeDetail.type === 'Demande'">Curriculum Vitae: </span><span
+          class="cv">{{ offreDemandeDetail.utilisateur.cv }}</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-3">
+      <button class="btn btnPostuler" *ngIf="offreDemandeDetail.type === 'Offre'; else demandeur">Postuler maintenant!
+      </button>
+      <ng-template #demandeur>
+        <button class="btn btnPostuler">Contacter maintenant !</button>
+      </ng-template>
+    </div>
+  </div>
+</div>
+<ng-container *ngIf="offreDemandeDetail.type === 'Offre'">
+  <div class=" row titreDetail">Candidat recherché</div>
+  <div class="row txtCandidatRecherche">{{ offreDemandeDetail.competencesRercherchees }}</div>
+  <div class=" row titreDetail">Responsabilités</div>
+  <div class="row txtCandidatRecherche">{{ offreDemandeDetail.descriptionPosteRecherche }}</div>
+  <div class=" row titreDetail">À propos de l'entreprise</div>
+  <div class="row txtCandidatRecherche">{{ offreDemandeDetail.description }}</div>
+</ng-container>
+<ng-container *ngIf="offreDemandeDetail.type === 'Demande'">
+  <div class=" row titreDetail">programme suivi</div>
+  <div class="row txtCandidatRecherche">{{ offreDemandeDetail.utilisateur.programmeSuivi  }}</div>
+  <div class=" row titreDetail">autres formations</div>
+  <div class="row txtCandidatRecherche">{{ offreDemandeDetail.autresInformations }}</div>
+  <div class=" row titreDetail">compétences aquises</div>
+  <div class="row txtCandidatRecherche">{{ offreDemandeDetail.descriptionPosteRecherche }}</div>
+  <div class=" row titreDetail">autres informations</div>
+  <div class="row txtCandidatRecherche">{{ offreDemandeDetail.autresInformations }}</div>
+</ng-container>
+
+
+
+
+
+

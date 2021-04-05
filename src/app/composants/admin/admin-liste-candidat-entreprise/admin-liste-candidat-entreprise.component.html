@@ -1,0 +1,11 @@
+<div class="bgPage vh-100">
+  <div class="titrePage mt-3">
+    {{ carte }} <span class="mx-3"><i class="fas fa-level-down-alt"></i></span>
+  </div>
+  <div class="row">
+    <div class="col-4" *ngFor="let item of liste">
+      <app-admin-carte-candidat-entreprise [candidat]="item" ></app-admin-carte-candidat-entreprise>
+    </div>
+  </div>
+
+</div>

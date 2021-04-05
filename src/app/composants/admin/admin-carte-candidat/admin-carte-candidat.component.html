@@ -1,0 +1,15 @@
+<div class="bg-light p-3 mb-3">
+  <div class="nomCandidat text-center mt-3 ">
+    {{ candidat.utilisateur.prenom}} {{ candidat.utilisateur.nom }}
+  </div>
+  <div class="ecoleVille mt-2 text-center">
+    {{ candidat.utilisateur.etablissement }}
+  </div>
+  <div class="ecoleVille text-center">
+    {{ candidat.utilisateur.ville }}
+  </div>
+  <div class="text-center mt-3">
+    <span class="btn btn-sm btnEditerSupprimer"><i class="fas fa-edit text-success mx-2"></i>Modifier</span>
+    <span class="btn btn-sm btnEditerSupprimer btnSupprier"><i class="fas fa-window-close text-danger mx-2"></i>Supprimer</span>
+  </div>
+</div>

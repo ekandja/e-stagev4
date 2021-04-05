@@ -1,0 +1,126 @@
+<app-entete-autres-pages [offreDemande]="offreDemande"></app-entete-autres-pages>
+<div class="row identification">
+  <div class="col-3">
+    <h2>Identification</h2>
+    <form #userForm="ngForm" (ngSubmit)="userForm.form.valid && connexion(userForm)">
+      <div class="form-group">
+        <label>Adresse courriel</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="courrielConnexion" #email="ngModel"
+               [ngClass]="{ 'is-invalid': userForm.submitted && email.invalid }" email required>
+        <div *ngIf="userForm.submitted && email.invalid" class="invalid-feedback">
+          <div *ngIf="email.errors.required">L'adresse courriel est obligatoire</div>
+          <div *ngIf="email.errors.email">Le courriel doit être valide</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Mot de passe</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="motDePasse" #password="ngModel"
+               [ngClass]="{ 'is-invalid': userForm.submitted && password.invalid }" required>
+        <div *ngIf="userForm.submitted && password.invalid" class="invalid-feedback">
+          <div *ngIf="password.errors.required">Le mot de passe est obligatoire</div>
+        </div>
+      </div>
+      <div class="passeIncorret" *ngIf="wrongPassword">L'adresse courriel ou le mot de passe n'est pas correct!</div>
+
+      <div class="form-group">
+        <button class="btn btn-primary">Envoyer</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-7  offset-2">
+    <h2>Nouvel utilisateur</h2>
+    <!--Zone des alertes-->
+    <form #userFormNew="ngForm" (ngSubmit)="userFormNew.form.valid && ajouterUtilisateur(userFormNew)">
+      <div class="form-group row">
+        <div class="col">
+          <label for="nom">Nom</label>
+          <input type="text" class="form-control" id="nom" name="nom" [(ngModel)]="newUtilisateur.nom" #nom="ngModel"
+                 [ngClass]="{ 'is-invalid': userFormNew.submitted && nom.invalid }" minlength="3" required>
+          <div *ngIf="userFormNew.submitted && nom.invalid" class="invalid-feedback">
+            <div *ngIf="nom.errors.required">Le mom est obligatoire</div>
+            <div *ngIf="nom.errors.minlength">Le nom doit avoir au minimun 3 caractères</div>
+          </div>
+        </div>
+        <div class="col">
+
+          <label for="prenom">Prénom</label>
+          <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="newUtilisateur.nom"
+                 #prenom="ngModel"
+                 [ngClass]="{ 'is-invalid': userFormNew.submitted && nom.invalid }" minlength="3" required>
+          <div *ngIf="userFormNew.submitted && prenom.invalid" class="invalid-feedback">
+            <div *ngIf="prenom.errors.required">Le prénom est obligatoire</div>
+            <div *ngIf="prenom.errors.minlength">Le prénom doit avoir au minimun 3 caractères</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col">
+          <label for="courrielNouveau">Courriel</label>
+          <input type="email" class="form-control" id="courrielNouveau" name="courrielNouveau"
+                 [(ngModel)]="newUtilisateur.nom" #courrielNouveau="ngModel"
+                 [ngClass]="{ 'is-invalid': userFormNew.submitted && courrielNouveau.invalid }" minlength="3" email
+                 required>
+          <div *ngIf="userFormNew.submitted && courrielNouveau.invalid" class="invalid-feedback">
+            <div *ngIf="courrielNouveau.errors.required">Le courriel est obligatoire</div>
+            <div *ngIf="courrielNouveau.errors.email">Le courriel doit être valide</div>
+          </div>
+        </div>
+        <div class="col">
+          <label for="courrielNouveauConfirme">Confirmer le courriel</label>
+          <input type="email" class="form-control" id="courrielNouveauConfirme" name="courrielNouveauConfirme"
+                 [(ngModel)]="newUtilisateur.nom" #courrielNouveauConfirme="ngModel"
+                 [ngClass]="{ 'is-invalid': userFormNew.submitted && courrielNouveauConfirme.invalid }" minlength="3"
+                 email required>
+          <div *ngIf="userFormNew.submitted && courrielNouveauConfirme.invalid" class="invalid-feedback">
+            <div *ngIf="courrielNouveauConfirme.errors.required">Le courriel est obligatoire</div>
+            <div *ngIf="courrielNouveauConfirme.errors.email">Le courriel doit être valide</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col">
+          <label>Mot de passe</label>
+          <input type="password" class="form-control" name="passwordNouveau" [(ngModel)]="motDePasse" #passwordNouveau="ngModel"
+                 [ngClass]="{ 'is-invalid': userFormNew.submitted && passwordNouveau.invalid }" minlength="8" required>
+          <div *ngIf="userForm.submitted && passwordNouveau.invalid" class="invalid-feedback">
+            <div *ngIf="passwordNouveau.errors.required">Le mot de passe est obligatoire</div>
+            <div *ngIf="passwordNouveau.errors.minlength">Le mot de passe doit avoir au moins 8 caractères</div>
+          </div>
+        </div>
+        <div class="col">
+          <label>Comfirmez le mot de passe</label>
+          <input type="password" class="form-control" name="passwordNouveauConfirme" [(ngModel)]="motDePasse" #passwordNouveauConfirme="ngModel"
+                 [ngClass]="{ 'is-invalid': userFormNew.submitted && passwordNouveauConfirme.invalid }" minlength="8" required>
+          <div *ngIf="userForm.submitted && passwordNouveauConfirme.invalid" class="invalid-feedback">
+            <div *ngIf="passwordNouveauConfirme.errors.required">La confirmation du mot de passe est obligatoire</div>
+            <div *ngIf="passwordNouveauConfirme.errors.minlength">Le mot de passe doit avoir au moins 8 caractères</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary">Envoyer</button>
+      </div>
+    </form>
+
+  </div>
+</div>
+
+<!-- -->
+<div class="row mb-5 mt-5">
+  <div class="col-6 bgInsitationPostuler"></div>
+  <div class="col-6 txtInsitationPostuler">
+    <div class="blocInfo">
+      Etiam mattis est in tellus mattis maximus. Etiam non molestie metus. Donec quis mauris metus. Cras tempor varius
+      odio, nec varius nisi sollicitudin ac. Praesent vitae elementum augue
+    </div>
+  </div>
+</div>
+<div class="mt-3 mb-3 publi text-center">
+  <img src="https://dummyimage.com/150/0b2040/FFFFFF?text=Publicité" alt="pubilicte">
+</div>
+<app-chercheurs-stage></app-chercheurs-stage>
+<app-menu-bas></app-menu-bas>

@@ -1,0 +1,14 @@
+<div class="bgPage vh-100">
+  <div class="titrePage mt-3 mb-3">
+    {{ titrePage }} <span class="mx-3"><i class="fas fa-level-down-alt"></i></span>
+  </div>
+  <div class="alert alert-danger" *ngIf="noData">
+    <span>Vous n'avez publié aucune demande de stage ou vos demandes ne sont pas valides!</span>
+  </div>
+  <div class="row">
+    <div class="col-12 mb-3" *ngFor="let item of liste">
+      <app-admin-edit-demande-offre [liste]="item"></app-admin-edit-demande-offre>
+    </div>
+  </div>
+
+</div>

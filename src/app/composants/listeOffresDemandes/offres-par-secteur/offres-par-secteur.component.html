@@ -1,0 +1,25 @@
+<div class="row">
+  <app-entete-autres-pages [offreDemande]="messageType"></app-entete-autres-pages>
+</div>
+<div class="row offre">
+
+  <div class="col-8">
+    <ul class="breadcrumb">
+      <li><a routerLink="/">Accueil></a></li>
+      <li><a routerLink="/offres-demandes/{{ id }}"></a>{{ messageType }}</li>
+    </ul>
+    <ng-container *ngFor="let offre of offreDemande">
+      <app-offre-demande-individuel [offreDemande]="offre"></app-offre-demande-individuel>
+    </ng-container>
+    <div class="btnChargerPlus text-center">
+      <button class="btn chargerPlus" (click)="chargerPlus()">Charger plus</button>
+    </div>
+  </div>
+  <div class="col-4">
+    <h2 class="titreSecteur">Secteurs d'activité</h2>
+    <ng-container *ngFor="let sector of secteurs">
+      <app-secteurs-dactivite [secteur]="sector"></app-secteurs-dactivite>
+    </ng-container>
+  </div>
+</div>
+

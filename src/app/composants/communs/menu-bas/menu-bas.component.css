@@ -1,0 +1,17 @@
+ul li{
+  display: inline;
+  font-size: 14px;
+  padding-left: 75px;
+  cursor: pointer;
+}
+span{
+  color: #544CF9;
+}
+.pEnstage{
+  font-size: 14px;
+  margin-top: 5px;
+}
+a{
+  text-decoration: none;
+  color: #212529;
+}

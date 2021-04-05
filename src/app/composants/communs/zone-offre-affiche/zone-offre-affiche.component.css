@@ -1,0 +1,16 @@
+.divDemande{
+  width: 635px;
+  margin:25px auto;
+}
+.h2Demande{
+  color: #4F4F6F;
+  font-weight: 600;
+  font-size: 48px;
+}
+
+.divDescription{
+  color: #7D7D7D;
+  font-size: 18px;
+  margin: 15px auto;
+  width: 570px;
+}

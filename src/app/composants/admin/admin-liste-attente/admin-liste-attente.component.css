@@ -1,0 +1,39 @@
+.divMenu{
+  background-color: #307CAF;
+}
+
+a.nav-link {
+  color: white;
+  text-decoration: none;
+}
+.deconnexion {
+  display: inline-block;
+  margin-top: 50px;
+}
+.logoMenu{
+  font-family: 'Oswald', sans-serif;
+  font-size: 48px;
+  color: white;
+}
+.ajouterOffreDemande{
+  font-size: 14px;
+}
+.flex-container {
+  display: flex;
+}
+.nom{
+  color: #000;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+}
+.niveauAcces{
+  display: block;
+  font-family: "Open sans", sans-serif;
+}
+.iconSizeAvatar{
+  font-size: 32px;
+  color: #CCD4E0;
+}
+.iconSizeExit{
+  color: #CCD4E0;
+}

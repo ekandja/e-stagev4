@@ -1,0 +1,28 @@
+.chargerPlus{
+  background-color: #C82333;
+  color: white;
+}
+.titreSecteur{
+  font-weight: bold;
+  font-size: 24px;
+}
+.breadcrumb li{
+  font-size: 18px;
+  cursor: pointer;
+}
+.offre{
+  margin-top: 100px;
+}
+a{
+  text-decoration: none;
+  color: #1B1E21;
+}
+button a {
+  color: white;
+}
+.offreBouton a{
+  color: white;
+}
+.publi{
+  background-image:url("https://dummyimage.com/60x140/295191/295191");
+}

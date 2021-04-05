@@ -1,0 +1,21 @@
+<div class="inputRercherher justify-content-center">
+  <form class="row g-3 justify-content-center">
+    <div class="col-auto">
+      <form>
+        <label for="recherche" class="visually-hidden">Rechercher</label>
+        <input autofocus type="text" name="formation" (click)="montreSelect()" [(ngModel)]="formationRecherche"
+               class="form-control inputMotCle" id="recherche" placeholder="Mots clé">
+
+        <select *ngIf="isFocusInput" class="form-select" size="3" aria-label="size 3 select example"
+                (click)="titreSelected($event)">
+          <option class="optionDisplayed" value="{{ item }}"
+                  *ngFor="let item of formation | filter: formationRecherche">{{ item }}</option>
+        </select>
+      </form>
+    </div>
+    <div class="col-auto">
+      <button class="btn btnRechercher mb-1" (click)="rechercheOffreDemande(formationRecherche)">Rechercher</button>
+    </div>
+  </form>
+</div>
+

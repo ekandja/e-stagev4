@@ -1,0 +1,62 @@
+.iconTitre{
+  font-size: 28px;
+  display: inline-block;
+}
+.titreStage{
+  font-size: 24px;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 25px;
+}
+.nomE{
+  font-weight: bold;
+  font-size: 16px;
+  color: #7A7A7A;
+  cursor: pointer;
+}
+.divTitreStage{
+  border-bottom: 2px solid #010101;
+}
+.lieu{
+  font-weight: bold;
+  font-size: 16px;
+}
+.villeRegion{
+  font-size: 16px;
+  font-weight: normal;
+}
+.description{
+  font-size: 12px;
+  margin-top: 15px;
+}
+.btnDetail{
+  background-color: #307CAF;
+  color: white;
+}
+.btnRefuser{
+  background-color: #FA6980;
+  color: white;
+}
+.btnAccepter{
+  background-color: #72A84A;
+  color: white;
+  margin-left: 20px;
+}
+.adminOfDem{
+  border-top: 5px solid #3E99DF ;
+  background-color: #EAEFF3;
+  padding: 20px;
+}
+.btnEditerSupprimer{
+  background-color: #F6F6F6;
+  margin-left: 15px;
+}
+.datePublication{
+  font-size: 12px;
+}
+.btnDetail a{
+  color: white;
+}
+.btnDetail a:hover{
+  text-decoration: none;
+}

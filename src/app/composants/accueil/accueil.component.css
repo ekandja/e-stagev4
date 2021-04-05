@@ -1,0 +1,15 @@
+.voirTout{
+  margin: 75px auto;
+  background-color: #C82333;
+  width: 265px;
+  font-size: 16px;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+.voirTout a {
+  color: white;
+}
+.voirTout a:hover {
+  text-decoration: none;
+}

@@ -1,0 +1,39 @@
+.bgEntete{
+  background-image:url("https://dummyimage.com/640x360/6A6767/6A6767");
+  height: 560px;
+  background-size: cover;
+}
+
+.titreTrouvezStage{
+  font-weight: 600;
+  color: white;
+}
+.inputRercherher {
+  height: 65px;
+  margin: 50px auto;
+  padding: 0;
+}
+
+.inputMotCle{
+  width: 575px;
+  height: 55px;
+  border-color: white;
+}
+.btnRechercher{
+  width: 192px;
+  height: 55px;
+  border-radius: 3px;
+  background-color: #544CF9;
+  border-color: #544CF9;
+  color: white;
+}
+
+.classeInvisible{
+  margin-bottom: 125px;
+}
+.typeActivite{
+  color: white;
+  font-size: 90px;
+  font-family: 'Oswald', sans-serif;
+}
+

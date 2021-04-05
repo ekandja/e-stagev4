@@ -1,0 +1,32 @@
+<app-entete-accueil [offreDemande]="typeOffreDemande" ></app-entete-accueil>
+<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert" *ngIf="nonAutorise" >
+   Vous devez êtes connecter avant de regarder la page que vous recherchez !
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" (click)="fermerAlerte()"></button>
+</div>
+<app-zone-offre-affiche></app-zone-offre-affiche>
+<div class="row">
+  <ng-container *ngFor="let item of offre">
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+      <app-carte-offre-demande [offreDemandeCarte]="item"></app-carte-offre-demande>
+    </div>
+  </ng-container>
+</div>
+<div class="row">
+  <h2 class="text-center voirTout btn"><a routerLink="/offres_demandes/offres">Voir tous les offres de stage</a></h2>
+</div>
+<app-pourquoi-offrir></app-pourquoi-offrir>
+<app-zone-demande-affiche></app-zone-demande-affiche>
+<div class="row">
+  <ng-container *ngFor="let item of demande">
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+      <app-carte-offre-demande [offreDemandeCarte]="item"></app-carte-offre-demande>
+    </div>
+  </ng-container>
+</div>
+<div class="row">
+  <h2 class="text-center voirTout btn"><a routerLink="/offres_demandes/demandes">Voir tous les candidats</a></h2>
+</div>
+<app-pourquoi-demander></app-pourquoi-demander>
+<app-etapes-utilisations></app-etapes-utilisations>
+<app-chercheurs-stage></app-chercheurs-stage>
+<app-pied></app-pied>

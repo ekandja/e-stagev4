@@ -1,0 +1,66 @@
+.iconTitre{
+  font-size: 20px;
+}
+.titreStage{
+  font-size: 16px;
+  font-weight: bold;
+  margin-left: 15px;
+}
+.nomE{
+  font-weight: bold;
+  font-size: 14px;
+  color: #7A7A7A;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+.nomE a {
+  color: #7A7A7A;
+}
+.divTitreStage{
+  border-bottom: 2px solid #010101;
+}
+.lieu{
+  font-weight: bold;
+  font-size: 14px;
+}
+.villeRegion{
+  font-size: 14px;
+  font-weight: normal;
+}
+.description{
+  font-size: 12px;
+  margin-top: 15px;
+}
+.btnDetail{
+  background-color: #307CAF;
+  color: white;
+}
+.btnRefuser{
+  background-color: #FA6980;
+  color: white;
+}
+.btnAccepter{
+  background-color: #72A84A;
+  color: white;
+  margin-left: 20px;
+}
+.adminDem{
+  border-top: 5px solid #3E99DF ;
+  background-color: #EAEFF3;
+  padding: 0 10px 10px 10px;
+  margin-bottom: 20px;
+}
+.adminOff{
+  border-top: 5px solid #A5AC3F ;
+}
+
+.margeVilleEntreprise{
+  margin-top: 30px;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover{
+  text-decoration: none;
+}

@@ -1,0 +1,17 @@
+.divMenu{
+  background-color: #307CAF;
+}
+
+a.nav-link {
+  color: white;
+  text-decoration: none;
+}
+.deconnexion {
+  display: inline-block;
+  margin-top: 50px;
+}
+.logoMenu{
+  font-family: 'Oswald', sans-serif;
+  font-size: 48px;
+  color: white;
+}

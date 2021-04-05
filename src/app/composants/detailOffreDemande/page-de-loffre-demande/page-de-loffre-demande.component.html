@@ -1,0 +1,49 @@
+
+  <app-entete-autres-pages [offreDemande]="messageType"></app-entete-autres-pages>
+
+
+<div class="row offre">
+  <div class="col-8">
+    <ng-container *ngFor="let item of offreDemande">
+      <app-detail-de-loffre-demande [offreDemandeDetail]="item" [dateDebut]="dateDebut" [dateFin]="dateFin"
+                                    [emploi]="emploi"></app-detail-de-loffre-demande>
+    </ng-container>
+  </div>
+
+  <div class="col-4">
+    <h2 class="titreSecteur">Secteurs d'activité</h2>
+    <ng-container *ngFor="let sector of secteurs">
+      <app-secteurs-dactivite [secteur]="sector"></app-secteurs-dactivite>
+    </ng-container>
+  </div>
+</div>
+<div class="composantGroupe mt-3">
+  <ng-container *ngIf="type === 'Offre'; else offrant">
+    <app-pourquoi-demander></app-pourquoi-demander>
+    <app-zone-offre-affiche></app-zone-offre-affiche>
+  </ng-container>
+  <ng-template #offrant>
+    <app-pourquoi-offrir></app-pourquoi-offrir>
+    <app-zone-demande-affiche></app-zone-demande-affiche>
+  </ng-template>
+  <div class="row">
+    <ng-container *ngFor="let item of offreDemandeCarte">
+      <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
+        <app-carte-offre-demande [offreDemandeCarte]="item"></app-carte-offre-demande>
+      </div>
+    </ng-container>
+  </div>
+  <ng-container *ngIf="type === 'Offre'; else etudiant">
+    <app-pourquoi-offrir></app-pourquoi-offrir>
+  </ng-container>
+  <ng-template #etudiant>
+    <app-pourquoi-demander></app-pourquoi-demander>
+  </ng-template>
+</div>
+<div class="mt-3 mb-3 publi text-center">
+  <img src="https://via.placeholder.com/150/0b2040/FFFFFF?text=Publicité" alt="pubilicte">
+</div>
+<app-chercheurs-stage></app-chercheurs-stage>
+<app-menu-bas></app-menu-bas>
+
+

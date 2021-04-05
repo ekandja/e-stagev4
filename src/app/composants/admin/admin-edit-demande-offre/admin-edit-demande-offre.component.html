@@ -1,0 +1,43 @@
+<div class="adminOfDem">
+  <div class="divTitreStage row">
+    <div class="col-8">
+      <div><span class="iconTitre"><i class="fas fa-user-graduate"></i></span> <span
+        class="titreStage">{{ liste.titre }}</span></div>
+    </div>
+    <div class="col-4 datePublication text-right my-auto"><span class="align-bottom">Publié le: {{ liste.parutionAt | dateFormat }}</span></div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-6">
+
+      <div class="nomE" *ngIf="liste.type === 'Demande'" ><span routerLink="/admin/fiche/liste/{{ liste.utilisateur.id }}">{{ liste.utilisateur.nom }} {{ liste.utilisateur.prenom }}</span></div>
+
+      <div class="lieu" *ngIf="liste.type === 'Offre'" >Entreprise: <span class="villeRegion">{{ liste.utilisateur.nomEntreprise }}</span></div>
+      <div class="lieu">Ville: <span class="villeRegion">{{ liste.utilisateur.ville }}</span></div>
+      <div class="lieu" *ngIf="liste.type === 'Offre'" >Site web: <span class="villeRegion"><a href="#">{{ liste.utilisateur.siteWeb }}</a></span></div>
+
+      <div class="lieu" *ngIf="liste.type === 'Demande'">Établissement scolaire: <span class="villeRegion">{{ liste.utilisateur.etablissement }}</span></div>
+    </div>
+    <div class="col-6">
+      <div class="lieu">Formation: <span class="villeRegion">{{ liste.titre }}</span></div>
+      <div class="lieu">Début: <span class="villeRegion">{{ liste.debutAt | dateFormat }}</span></div>
+      <div class="lieu">Fin: <span class="villeRegion">{{ liste.finAt | dateFormat }}</span></div>
+    </div>
+  </div>
+
+
+  <div class="description">
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut laborelitr, sed
+    diam nonumy eirmod tempor invidunt...
+  </div>
+  <div class="row mt-4">
+    <div class="col-6 ">
+      <span class="btn btn-sm btnDetail"><a routerLink="/admin/detail/{{ liste.type }}/liste/{{ liste.id }}">Détails</a></span>
+    </div>
+    <div class="col-6 text-right">
+      <span class="btn btn-sm btnEditerSupprimer"><i class="fas fa-edit text-success mx-2"></i>Modifier</span>
+      <span class="btn btn-sm btnEditerSupprimer"><i class="fas fa-window-close text-danger mx-2"></i>Supprimer</span>
+    </div>
+  </div>
+</div>
+

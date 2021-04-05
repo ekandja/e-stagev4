@@ -1,0 +1,62 @@
+.titrePage{
+  font-weight: bold;
+  font-size: 42px;
+}
+.arrowDown{
+  display: inline-block;
+}
+.btnRefuser{
+  background-color: #FA6980;
+  color: white;
+}
+.btnAccepter{
+  background-color: #72A84A;
+  color: white;
+  margin-left: 20px;
+}
+.btnAccepterRefuser{
+  margin-top: 40px;
+  text-align: right;
+  border-bottom: 5px solid #3E99DF;
+  padding-bottom: 10px;
+}
+.iconTitre{
+  font-size: 36px;
+  display: inline-block;
+}
+.titreStage{
+  font-size: 30px;
+  font-weight: bold;
+  display: inline-block;
+  margin-left: 25px;
+}
+.divTitreStage{
+  border-bottom: 2px solid #010101;
+}
+.tableTitre{
+  color: #343A40;
+  font-weight: bold;
+  width: 45%;
+}
+.btnEditerSupprimer{
+  background-color: #F6F6F6;
+}
+.btnSupprier{
+  margin-left: 15px;
+}
+.communiquer{
+  margin-top: 100px;
+}
+.cv{
+  cursor: pointer;
+  color: #5C4CF9;
+}
+.cv:hover{
+  text-decoration: underline;
+}
+a {
+  color: white;
+}
+a:hover {
+  text-decoration: none;
+}

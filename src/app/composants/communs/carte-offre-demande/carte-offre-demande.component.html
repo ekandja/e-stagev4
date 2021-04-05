@@ -1,0 +1,20 @@
+<div class="card h-100">
+  <div class="card-body">
+    <h5 class="card-title">{{ offreDemandeCarte.titre }}</h5>
+    <div *ngIf="offreDemandeCarte.type == 'Offre'; else etudiant">
+      <h6 class="card-subtitle mb-2 text-muted">{{ offreDemandeCarte.utilisateur.nomEntreprise }}</h6>
+    </div>
+    <ng-template #etudiant>
+      <h6
+        class="card-subtitle mb-2 text-muted">{{ offreDemandeCarte.utilisateur.nom }} {{ offreDemandeCarte.utilisateur.nom }}</h6>
+    </ng-template>
+    <p class="card-text">{{ offreDemandeCarte.description }}</p>
+    <a routerLink="/detail_offre_demande/{{offreDemandeCarte.type}}/{{ offreDemandeCarte.id }}" class="card-link">Détails</a>
+    <a href="mailto:{{ offreDemandeCarte.utilisateur.courriel }}" *ngIf="offreDemandeCarte.type == 'Offre'; else demandeur" class="card-link btn btnPostuler" >Postuler</a>
+    <ng-template #demandeur>
+      <a href="mailto:{{ offreDemandeCarte.utilisateur.courriel }}" *ngIf="offreDemandeCarte.type == 'Demande'; else demandeur" class="card-link btn btnPostuler" >Contacter</a>
+    </ng-template>
+  </div>
+</div>
+
+

@@ -1,0 +1,31 @@
+<div class="adminDem" [ngClass]="{adminOff: attente.type === 'Offre'}">
+  <div class="divTitreStage">
+    <div><span class="iconTitre"><i class="fas fa-user-graduate"></i></span> <span
+      class="titreStage">{{ attente.titre }}</span></div>
+  </div>
+
+  <div class="nomE mt-3" *ngIf="attente.type === 'Demande'" ><a routerLink="/admin/fiche/attente/{{ attente.utilisateur.id }}">{{ attente.utilisateur.prenom }} {{ attente.utilisateur.nom}}</a></div>
+
+ <div class="lieu" *ngIf="attente.type === 'Demande'">Ville: <span class="villeRegion">{{ attente.utilisateur.ville }}</span></div>
+  <div class="lieu mt-3" *ngIf="attente.type === 'Offre'">Ville: <span class="villeRegion">{{ attente.utilisateur.ville }}</span></div>
+
+  <div class="lieu" *ngIf="attente.type === 'Demande'">
+    Établissement scolaire: <span class="villeRegion">{{ attente.utilisateur.etablissement}}</span>
+  </div>
+  <div class="lieu" *ngIf="attente.type === 'Offre'">
+    Entreprise: <span class="villeRegion">{{ attente.utilisateur.nomEntreprise }}</span>
+  </div>
+  <div class="description">
+    {{ attente.description }}
+  </div>
+  <div class="row mt-4">
+    <div class="col-2 ">
+      <span class="btn btn-sm btnDetail"><a routerLink="/admin/detail/{{ attente.type }}/attente/{{ attente.id }}">Détails</a></span>
+    </div>
+    <div class="col-10 text-right">
+      <span class="btn btn-sm btnRefuser" >Réfuser</span>
+      <span class="btn btn-sm btnAccepter" (click)="onclickAccpeter(attente.id)">Accepter</span>
+    </div>
+  </div>
+</div>
+

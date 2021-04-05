@@ -1,0 +1,21 @@
+<div class="bgPage vh-100">
+  <div class="titrePage">
+    En attente de validation <span class="mx-3"></span>
+  </div>
+  <div class="row mt-4">
+    <div class="col-6">
+      <div class="titreOffreDemande">Demandes de stage <i class="fas fa-level-down-alt"></i></div>
+      <div class="listeDemande">
+        <ng-container *ngFor="let demande of offreDemandeAttente">
+          <app-admin-offre-demande-attente [attente]="demande" *ngIf="demande.type === 'Demande'"></app-admin-offre-demande-attente>
+        </ng-container>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="titreOffreDemande">Offres de stage de stage <i class="fas fa-level-down-alt"></i></div>
+      <ng-container *ngFor="let demande of offreDemandeAttente">
+        <app-admin-offre-demande-attente [attente]="demande" *ngIf="demande.type === 'Offre'"></app-admin-offre-demande-attente>
+      </ng-container>
+    </div>
+  </div>
+</div>

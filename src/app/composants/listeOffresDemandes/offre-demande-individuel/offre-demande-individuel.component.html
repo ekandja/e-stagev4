@@ -1,0 +1,33 @@
+<div class="row cadreOffre" [ngClass]="{cadreDemande: offreDemande.type == 'Demande'}">
+  <div class="col-9">
+    <div class="titreOffre">{{ offreDemande.titre }}</div>
+    <div class="identite mb-1"
+         *ngIf="offreDemande.type == 'Offre'; else etudiant"><i class="fas fa-building me-2"></i>{{ offreDemande.utilisateur.nomEntreprise }}</div>
+    <ng-template #etudiant>
+      <div class="identite mb-1"><i class="fas fa-user-graduate me-2"></i>{{ offreDemande.utilisateur.nom }} {{ offreDemande.utilisateur.prenom }}</div>
+    </ng-template>
+    <div class="lieu">{{ offreDemande.utilisateur.ville }} - {{ offreDemande.utilisateur.region }}</div>
+    <div class="secteur" *ngIf="offreDemande.type == 'Offre'">{{ offreDemande.secteur.titre }}</div>
+    <div class="description">{{ offreDemande.description }}</div>
+    <div class="">
+      <button class="btn offreBouton"><a routerLink="/detail_offre_demande/{{ offreDemande.type }}/{{ offreDemande.id }}">Détails</a></button>
+
+      <span class="btn offreBouton" *ngIf="offreDemande.type == 'Offre'; else demandeur"><a href="mailto:{{ offreDemande.utilisateur.courriel }}">Postuler</a></span>
+      <ng-template #demandeur>
+        <span class="btn offreBouton" ><a href="mailto:{{ offreDemande.utilisateur.courriel }}">Contacter</a></span>
+      </ng-template>
+
+    </div>
+
+  </div>
+  <div class="col-3">
+    <div class="text-center" *ngIf="offreDemande.type == 'Offre'"><img src="{{ offreDemande.utilisateur.logo  }}"
+                                                                       alt="logoEntreprise"></div>
+
+  </div>
+</div>
+
+
+
+
+

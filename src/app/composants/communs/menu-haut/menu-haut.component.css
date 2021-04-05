@@ -1,0 +1,36 @@
+.navbar-brand {
+  font-family: 'Oswald', sans-serif;
+  font-size: 48px;
+  color: white;
+}
+a.navbar-brand:hover {
+  color: white;
+}
+a.navbar-brand{
+  color: white;
+}
+.btnTrouver{
+  background-color: #28A745;
+  border-color: #28A745;
+  color: white;
+  margin-right: 25px;
+}
+.btnTrouver .nav-link {
+  color: white;
+}
+.btnInscription{
+  background-color: #343A40;
+  border-color: #343A40;
+  margin-left: 15px;
+}
+.btnInscription .nav-link {
+  color: white;
+}
+
+.btnconnexion{
+  background-color: #F8F9FA;
+  border-color: #F8F9FA;
+}
+.navbar-brand{
+  padding-top: 0;
+}
