@@ -12,7 +12,7 @@ const httpOptions = {
 })
 export class UtilisateurService {
 
-  utilisateurApi = 'http://localhost:8000/api/utilisateurs';
+  utilisateurApi = 'http://64.227.82.26:8000/api/utilisateurs';
   utilisateur: Utilisateur;
 
   constructor(private http: HttpClient) { }

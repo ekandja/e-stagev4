@@ -31,7 +31,7 @@ export class AdminEnteteComponent implements OnInit {
         this.role = 'Étudiant';
       }
       if (localStorage.getItem('niveauAcces') === String(333)) {
-        this.role = 'Éntreprise';
+        this.role = 'Entreprise';
       }
       if (localStorage.getItem('niveauAcces') === String(999)) {
         this.role = 'Admin';

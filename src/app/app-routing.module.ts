@@ -16,6 +16,8 @@ import {AdminRouteOffreDemandeComponent} from './composants/admin/admin-route-of
 import {AdminRouteFicheCandidatComponent} from './composants/admin/admin-route-fiche-candidat/admin-route-fiche-candidat.component';
 import {AdminRouteCandidatEntpriseComponent} from './composants/admin/admin-route-candidat-entprise/admin-route-candidat-entprise.component';
 import {RechercheComponent} from './composants/recherche/recherche.component';
+import {AdminAjoutOffreComponent} from './composants/admin/admin-ajout-offre/admin-ajout-offre.component';
+import {AdminAjoutDemandeComponent} from './composants/admin/admin-ajout-demande/admin-ajout-demande.component';
 
 const routes: Routes = [
   {path: '', component: AccueilComponent, resolve: {'': OffreDemandeResolver}},
@@ -34,7 +36,9 @@ const routes: Routes = [
   {path: 'admin/carte/:liste', component: AdminRouteCandidatEntpriseComponent},
   {path: 'admin/liste/:type', component: AdminRouteOffreDemandeComponent},
   {path: 'admin/fiche/:from/:id', component: AdminRouteFicheCandidatComponent},
-  {path: 'recherche/:titre', component: RechercheComponent}
+  {path: 'recherche/:titre', component: RechercheComponent},
+  {path: 'admin/ajoutOffre', component: AdminAjoutOffreComponent},
+  {path: 'admin/ajoutDemande', component: AdminAjoutDemandeComponent}
 ];
 
 @NgModule({

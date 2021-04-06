@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class OffreDemandeService {
 
-  offreDemandeApi = 'http://localhost:8000/api/offre_demandes';
+  offreDemandeApi = 'http://64.227.82.26:8000/api/offre_demandes';
 
   constructor(private http: HttpClient) { }
 

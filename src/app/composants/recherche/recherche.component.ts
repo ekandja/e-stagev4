@@ -20,8 +20,11 @@ export class RechercheComponent implements OnInit {
   messageType: string;
 
   resultat: any;
+  isResultat: boolean;
 
   titreRecherche: string;
+
+  requete = '';
 
   i: number;
 
@@ -33,17 +36,25 @@ export class RechercheComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.titreRecherche = this.route.snapshot.paramMap.get('titre')
+    this.titreRecherche = this.route.snapshot.paramMap.get('titre');
+    this.requete = 'SELECT * FROM ? WHERE titre LIKE \'%' + this.titreRecherche  + '%\'';
     this.recuperationTitre(this.titreRecherche);
     this.getSecteurs();
   }
 
   recuperationTitre(titre: string): void {
     this.titreRecherche = this.route.snapshot.paramMap.get('titre');
+    this.requete = 'SELECT * FROM ? WHERE titre LIKE \'%' + this.titreRecherche  + '%\'';
 
     this.offreDemandeService.getOffreDemande().subscribe(r => {
       this.offreDemande = r;
-      this.offreDemande = this.offreDemande.filter(f => ((f.titre === this.titreRecherche )));
+      this.resultat = alasql(this.requete, [this.offreDemande]);
+      if (this.resultat.length === 0){
+        this.isResultat = false;
+      } else {
+        this.isResultat = true;
+      }
+      // this.offreDemande = this.offreDemande.filter(f => ((f.titre === this.titreRecherche )));
      });
 
   }

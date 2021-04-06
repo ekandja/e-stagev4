@@ -58,6 +58,9 @@ import { AdminListeCandidatEntrepriseComponent } from './composants/admin/admin-
 import { FilterPipe } from './pipes/filter.pipe';
 import { RechercheComponent } from './composants/recherche/recherche.component';
 import { MettreEnGrasDirective } from './directives/mettre-en-gras.directive';
+import { ClickOutsideModule } from 'ng-click-outside';
+import { AdminAjoutDemandeComponent } from './composants/admin/admin-ajout-demande/admin-ajout-demande.component';
+import { AdminAjoutOffreComponent } from './composants/admin/admin-ajout-offre/admin-ajout-offre.component';
 
 
 @NgModule({
@@ -111,12 +114,15 @@ import { MettreEnGrasDirective } from './directives/mettre-en-gras.directive';
     FilterPipe,
     RechercheComponent,
     MettreEnGrasDirective,
+    AdminAjoutDemandeComponent,
+    AdminAjoutOffreComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ClickOutsideModule
   ],
   providers: [OffreDemandeService, SecteurService, UtilisateurService, OffreDemandeResolver],
   bootstrap: [AppComponent]

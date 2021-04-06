@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class SecteurService {
 
-  secteurApi = 'http://localhost:8000/api/secteurs';
+  secteurApi = 'http://64.227.82.26:8000/api/secteurs';
 
   constructor(private http: HttpClient) { }
 

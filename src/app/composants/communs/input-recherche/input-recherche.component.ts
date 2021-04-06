@@ -1,4 +1,4 @@
-import {Component, OnInit, EventEmitter, Output} from '@angular/core';
+import {Component, OnInit, EventEmitter, Output, ElementRef} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {OffreDemandeService} from '../../../services/offre-demande.service';
 import {OffresDemandes} from '../../../interfaces/offre-demande';
@@ -15,7 +15,6 @@ export class InputRechercheComponent implements OnInit {
   formation: string[];
   tableauIntermediaire: string[];
   isFocusInput: boolean;
-  isSelectOpen: boolean;
 
   formationRecherche = '';
   valeurAtrouvee = '';
@@ -23,8 +22,9 @@ export class InputRechercheComponent implements OnInit {
   @Output() titreAtrouver = new EventEmitter();
 
   constructor(private http: HttpClient, private offreDemandeService: OffreDemandeService,
-              private route: Router) {
+              private route: Router, private ref: ElementRef) {
   }
+
 
   ngOnInit(): void {
     this.getKeyWord();
@@ -44,25 +44,32 @@ export class InputRechercheComponent implements OnInit {
   }
 
   titreSelected(event: any): void {
-    this.formationRecherche = event.target.value;
+    this.formationRecherche = event.target.textContent.trim();
     this.isFocusInput = false;
     this.valeurAtrouvee = this.formationRecherche;
     this.route.navigate(['/recherche', this.formationRecherche]);
-
   }
 
-  montreSelect(): void {
+  keyDown(): void {
+    this.isFocusInput = false;
+    this.valeurAtrouvee = this.formationRecherche;
+    this.route.navigate(['/recherche', this.formationRecherche]);
+  }
+
+  montreTableau(): void {
     this.isFocusInput = true;
-    this.isSelectOpen = true;
+
   }
 
-  perteFocusInput(): void {
-      this.isFocusInput = false;
+  cacheTableau(): void{
+    this.isFocusInput = false;
   }
 
   rechercheOffreDemande(titre: string): void{
     this.titreAtrouver.emit(titre);
     this.route.navigate(['/recherche', titre]);
   }
+
+
 
 }

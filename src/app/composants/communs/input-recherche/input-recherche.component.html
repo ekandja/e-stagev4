@@ -3,14 +3,17 @@
     <div class="col-auto">
       <form>
         <label for="recherche" class="visually-hidden">Rechercher</label>
-        <input autofocus type="text" name="formation" (click)="montreSelect()" [(ngModel)]="formationRecherche"
+        <input autofocus type="text" name="formation" (click)="montreTableau()" (clickOutside)="cacheTableau()"
+               (keydown.enter)="keyDown()" [(ngModel)]="formationRecherche"
                class="form-control inputMotCle" id="recherche" placeholder="Mots clé">
-
-        <select *ngIf="isFocusInput" class="form-select" size="3" aria-label="size 3 select example"
-                (click)="titreSelected($event)">
-          <option class="optionDisplayed" value="{{ item }}"
-                  *ngFor="let item of formation | filter: formationRecherche">{{ item }}</option>
-        </select>
+        <div *ngIf="isFocusInput" id="ul-wrapper">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item optionDisplayed" (click)="titreSelected($event)"
+                *ngFor="let item of formation | filter: formationRecherche">
+              {{item}}
+            </li>
+          </ul>
+        </div>
       </form>
     </div>
     <div class="col-auto">

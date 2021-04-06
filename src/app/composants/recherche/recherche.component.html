@@ -7,8 +7,13 @@
       <li><a routerLink="/">Accueil></a></li>
       <li>Recherche</li>
     </ul>
-    <ng-container *ngFor="let offre of offreDemande">
+    <div class="alert alert-danger" role="alert" *ngIf="isResultat === false">
+      Aucune demande ou offre de stage trouvé pour <strong>{{ titreRecherche }}</strong>
+    </div>
+    <ng-container *ngIf="isResultat === true">
+    <ng-container *ngFor="let offre of resultat">
       <app-offre-demande-individuel [offreDemande]="offre"></app-offre-demande-individuel>
+    </ng-container>
     </ng-container>
   </div>
   <div class="col-4">
@@ -28,9 +33,8 @@
     <app-pourquoi-offrir></app-pourquoi-offrir>
     <app-zone-demande-affiche></app-zone-demande-affiche>
   </ng-template>
-  <div class="row">
-
-    <ng-container *ngFor="let item of offreDemandeCarte">
+    <div class="row">
+   <ng-container *ngFor="let item of offreDemandeCarte">
       <div class="col-lg-3 col-md-6 col-sm-12 mb-3">
         <app-carte-offre-demande [offreDemandeCarte]="item"></app-carte-offre-demande>
       </div>
