@@ -59,8 +59,8 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { RechercheComponent } from './composants/recherche/recherche.component';
 import { MettreEnGrasDirective } from './directives/mettre-en-gras.directive';
 import { ClickOutsideModule } from 'ng-click-outside';
-import { AdminAjoutDemandeComponent } from './composants/admin/admin-ajout-demande/admin-ajout-demande.component';
-import { AdminAjoutOffreComponent } from './composants/admin/admin-ajout-offre/admin-ajout-offre.component';
+import { AdminAjoutEditOffreDemandeComponent } from './composants/admin/admin-ajout-edit-offre-demande/admin-ajout-edit-offre-demande.component';
+import { AdminModifOffreDemandeComponent } from './composants/admin/admin-modif-offre-demande/admin-modif-offre-demande.component';
 
 
 @NgModule({
@@ -114,8 +114,8 @@ import { AdminAjoutOffreComponent } from './composants/admin/admin-ajout-offre/a
     FilterPipe,
     RechercheComponent,
     MettreEnGrasDirective,
-    AdminAjoutDemandeComponent,
-    AdminAjoutOffreComponent,
+    AdminAjoutEditOffreDemandeComponent,
+    AdminModifOffreDemandeComponent,
   ],
   imports: [
     BrowserModule,

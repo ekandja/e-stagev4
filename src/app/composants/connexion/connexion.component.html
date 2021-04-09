@@ -28,10 +28,13 @@
       </div>
     </form>
   </div>
+  <!--Nouvel utilisateur -->
   <div class="col-7  offset-2">
     <h2>Nouvel utilisateur</h2>
-    <!--Zone des alertes-->
-    <form #userFormNew="ngForm" (ngSubmit)="userFormNew.form.valid && ajouterUtilisateur(userFormNew)">
+    <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="isNouveauAjouter">
+      {{ this.newUtilisateur.nom }} {{ this.newUtilisateur.prenom }} a été ajouté avec succès!
+    </div>
+    <form #userFormNew="ngForm" (ngSubmit)="userFormNew.form.valid && ajouterUtilisateur()">
       <div class="form-group row">
         <div class="col">
           <label for="nom">Nom</label>
@@ -43,9 +46,8 @@
           </div>
         </div>
         <div class="col">
-
           <label for="prenom">Prénom</label>
-          <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="newUtilisateur.nom"
+          <input type="text" class="form-control" id="prenom" name="prenom" [(ngModel)]="newUtilisateur.prenom"
                  #prenom="ngModel"
                  [ngClass]="{ 'is-invalid': userFormNew.submitted && nom.invalid }" minlength="3" required>
           <div *ngIf="userFormNew.submitted && prenom.invalid" class="invalid-feedback">
@@ -59,18 +61,20 @@
         <div class="col">
           <label for="courrielNouveau">Courriel</label>
           <input type="email" class="form-control" id="courrielNouveau" name="courrielNouveau"
-                 [(ngModel)]="newUtilisateur.nom" #courrielNouveau="ngModel"
+                 [(ngModel)]="newUtilisateur.courriel" #courrielNouveau="ngModel"
                  [ngClass]="{ 'is-invalid': userFormNew.submitted && courrielNouveau.invalid }" minlength="3" email
                  required>
           <div *ngIf="userFormNew.submitted && courrielNouveau.invalid" class="invalid-feedback">
             <div *ngIf="courrielNouveau.errors.required">Le courriel est obligatoire</div>
             <div *ngIf="courrielNouveau.errors.email">Le courriel doit être valide</div>
           </div>
+          <div class="passeIncorret" *ngIf="isConfirmationCourriel">Les courriels ne sont pas identiques!</div>
+          <div class="passeIncorret" *ngIf="isCourrielExist">L'adresse courriel est déjà utilisé!</div>
         </div>
         <div class="col">
           <label for="courrielNouveauConfirme">Confirmer le courriel</label>
           <input type="email" class="form-control" id="courrielNouveauConfirme" name="courrielNouveauConfirme"
-                 [(ngModel)]="newUtilisateur.nom" #courrielNouveauConfirme="ngModel"
+                 [(ngModel)]="courrielConfirme" #courrielNouveauConfirme="ngModel"
                  [ngClass]="{ 'is-invalid': userFormNew.submitted && courrielNouveauConfirme.invalid }" minlength="3"
                  email required>
           <div *ngIf="userFormNew.submitted && courrielNouveauConfirme.invalid" class="invalid-feedback">
@@ -83,25 +87,37 @@
       <div class="form-group row">
         <div class="col">
           <label>Mot de passe</label>
-          <input type="password" class="form-control" name="passwordNouveau" [(ngModel)]="motDePasse" #passwordNouveau="ngModel"
-                 [ngClass]="{ 'is-invalid': userFormNew.submitted && passwordNouveau.invalid }" minlength="8" required>
+          <input type="password" class="form-control" name="passwordNouveau" [(ngModel)]="newUtilisateur.motDePasse" #passwordNouveau="ngModel"
+                 [ngClass]="{ 'is-invalid': userFormNew.submitted && passwordNouveau.invalid }" required>
           <div *ngIf="userForm.submitted && passwordNouveau.invalid" class="invalid-feedback">
             <div *ngIf="passwordNouveau.errors.required">Le mot de passe est obligatoire</div>
             <div *ngIf="passwordNouveau.errors.minlength">Le mot de passe doit avoir au moins 8 caractères</div>
           </div>
+          <div class="passeIncorret" *ngIf="isConfirmationPassword">Les mots de passe ne sont pas identiques!</div>
         </div>
         <div class="col">
           <label>Comfirmez le mot de passe</label>
-          <input type="password" class="form-control" name="passwordNouveauConfirme" [(ngModel)]="motDePasse" #passwordNouveauConfirme="ngModel"
-                 [ngClass]="{ 'is-invalid': userFormNew.submitted && passwordNouveauConfirme.invalid }" minlength="8" required>
+          <input type="password" class="form-control" name="passwordNouveauConfirme" [(ngModel)]="motDePasseConfirme" #passwordNouveauConfirme="ngModel"
+                 [ngClass]="{ 'is-invalid': userFormNew.submitted && passwordNouveauConfirme.invalid }" required>
           <div *ngIf="userForm.submitted && passwordNouveauConfirme.invalid" class="invalid-feedback">
             <div *ngIf="passwordNouveauConfirme.errors.required">La confirmation du mot de passe est obligatoire</div>
             <div *ngIf="passwordNouveauConfirme.errors.minlength">Le mot de passe doit avoir au moins 8 caractères</div>
           </div>
         </div>
       </div>
+      <div class="col">
+        <label >Votre statut: </label>
+        <div class="form-check form-check-inline ms-3">
+          <input name="statut" class="form-check-input" type="radio" id="etudiant" value="etudiant" [(ngModel)]="this.statutUtilisateur" checked>
+          <label class="form-check-label" for="etudiant">Étudiant</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input name="statut" class="form-check-input" type="radio" id="entreprise" value="entreprise" [(ngModel)]="this.statutUtilisateur">
+          <label class="form-check-label" for="entreprise">Entreprise</label>
+        </div>
+      </div>
 
-      <div class="form-group">
+      <div class="form-group mt-2">
         <button class="btn btn-primary">Envoyer</button>
       </div>
     </form>

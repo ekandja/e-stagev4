@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {Observable, observable} from 'rxjs';
 import {Utilisateur} from '../interfaces/utilisateur';
+import {NewEditUtilisateur} from '../interfaces/new-edit-utilisateur';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,6 +15,7 @@ export class UtilisateurService {
 
   utilisateurApi = 'http://64.227.82.26:8000/api/utilisateurs';
   utilisateur: Utilisateur;
+  newEditUtilisateur: NewEditUtilisateur;
 
   constructor(private http: HttpClient) { }
 
@@ -21,8 +23,8 @@ export class UtilisateurService {
     return this.http.get<Utilisateur[]>(this.utilisateurApi);
   }
 
-  addUtilisateur(utilisateur: Utilisateur): Observable<Utilisateur> {
-    return this.http.post<Utilisateur>(this.utilisateurApi, utilisateur, httpOptions);
+  addUtilisateur(newEditUtilisateur: NewEditUtilisateur): Observable<NewEditUtilisateur> {
+    return this.http.post<NewEditUtilisateur>(this.utilisateurApi, newEditUtilisateur, httpOptions);
   }
 
   deleteUtilisateur(id: string): Observable<Utilisateur>  {

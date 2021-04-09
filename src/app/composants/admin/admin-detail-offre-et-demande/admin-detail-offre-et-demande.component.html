@@ -7,13 +7,14 @@
   </div>
   <div class="btnAccepterRefuser" >
     <span *ngIf="niveauAcces === '999'">
-    <span class="btn btn-sm btnRefuser">Réfuser</span>
-    <span class="btn btn-sm btnAccepter">Accepter</span>
+    <span class="btn btn-sm btnRefuser" (click)="onclickMiseAJ(detaiOffreD.id, 'refuser')" >Réfuser</span>
+    <span class="btn btn-sm btnAccepter" (click)="onclickMiseAJ(detaiOffreD.id, 'accepter')">Accepter</span>
     </span>
   </div>
   <div class="divTitreStage mt-3 mb-4">
     <div><span class="iconTitre"><i class="fas fa-user-graduate"></i></span> <span
-      class="titreStage">{{ detaiOffreD.titre }}</span></div>
+      class="titreStage">{{ detaiOffreD.titre }}</span> <span class="validated ms-3" *ngIf="detaiOffreD.isValider === true">
+      <i class="fas fa-check-circle"></i></span></div>
   </div>
   <table class="table table-bordered ">
     <tbody>
@@ -77,8 +78,11 @@
     </tbody>
   </table>
   <div>
-    <span class="btn btn-sm btnEditerSupprimer"><i class="fas fa-edit text-success mx-2"></i>Modifier</span>
-    <span class="btn btn-sm btnEditerSupprimer btnSupprier"><i class="fas fa-window-close text-danger mx-2"></i>Supprimer</span>
+      <span class="btn btn-sm btnEditerSupprimer" (click)="modifOffreDemande('offre', detaiOffreD.id)" *ngIf="detaiOffreD.type === 'Offre'"><i
+        class="fas fa-edit text-success mx-2"></i>Modifier</span>
+    <span class="btn btn-sm btnEditerSupprimer" (click)="modifOffreDemande('demande', detaiOffreD.id)"
+          *ngIf="detaiOffreD.type === 'Demande'"><i class="fas fa-edit text-success mx-2"></i>Modifier</span>
+    <span class="btn btn-sm btnEditerSupprimer btnSupprier" (click)="supprimerOffreDemande(detaiOffreD.id)"><i class="fas fa-window-close text-danger mx-2"></i>Supprimer</span>
   </div>
 
   <form>

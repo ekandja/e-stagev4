@@ -35,8 +35,8 @@ export class AccueilComponent implements OnInit {
 
     this.offreDemandeService.getOffreDemande().subscribe(r => {
       this.offreDemande = r;
-      this.demande = this.offreDemande.filter(f => ((f.type === 'Demande' && f.isValider)));
-      this.offre = this.offreDemande.filter(f => ((f.type === 'Offre' && f.isValider)));
+      this.demande = this.offreDemande.filter(f => ((f.type === 'Demande' && f.isValider && f.isSupprimer === false)));
+      this.offre = this.offreDemande.filter(f => ((f.type === 'Offre' && f.isValider && f.isSupprimer === false)));
 
       this.demande = this.demande.slice(this.demande.length - 4, this.demande.length);
       this.offre = this.offre.slice(this.offre.length - 4, this.offre.length);

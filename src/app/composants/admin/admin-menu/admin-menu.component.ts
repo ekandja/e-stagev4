@@ -9,11 +9,13 @@ import {Router} from '@angular/router';
 export class AdminMenuComponent implements OnInit {
 
   niveauAcces: string;
+  userID: string;
 
   constructor(private router: Router) { }
 
   ngOnInit(): void {
     this.niveauAcces = localStorage.getItem('niveauAcces');
+    this.userID = localStorage.getItem('userID');
   }
 
   deconnexion(): void {

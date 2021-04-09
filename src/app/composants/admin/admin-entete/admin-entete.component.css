@@ -16,6 +16,7 @@
 .iconSizeAvatar{
   font-size: 32px;
   color: #CCD4E0;
+  cursor: pointer;
 }
 .iconSizeExit{
   color: #CCD4E0;

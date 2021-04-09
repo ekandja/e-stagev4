@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {OffresDemandes} from '../../../interfaces/offre-demande';
+import {OffreDemandeService} from '../../../services/offre-demande.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-edit-demande-offre',
@@ -10,9 +12,16 @@ export class AdminEditDemandeOffreComponent implements OnInit {
 
   @Input() liste: OffresDemandes;
 
-  constructor() { }
+  constructor(private offreDemandeService: OffreDemandeService, private router: Router) { }
 
   ngOnInit(): void {
   }
-
+  modifOffreDemande(action, id): void {
+    this.router.navigate(['/admin/modification', action, id]);
+  }
+  supprimerOffreDemande(id): void{
+    this.offreDemandeService.deleteOffreDemande(id).subscribe(r => {
+      this.router.navigate([this.router.url]);
+    });
+  }
 }

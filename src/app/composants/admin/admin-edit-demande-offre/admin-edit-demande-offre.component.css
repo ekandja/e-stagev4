@@ -60,3 +60,6 @@
 .btnDetail a:hover{
   text-decoration: none;
 }
+.validated{
+  color: green;
+}

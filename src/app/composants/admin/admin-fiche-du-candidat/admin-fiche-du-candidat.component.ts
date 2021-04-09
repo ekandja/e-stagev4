@@ -11,10 +11,14 @@ export class AdminFicheDuCandidatComponent implements OnInit {
 
   @Input() candidat: Utilisateur;
   @Input() from: string;
+  @Input() isProfil: boolean;
+  @Input() titrePage: string;
+  niveauAccess: string;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.niveauAccess = localStorage.getItem('niveauAcces');
   }
 
 }

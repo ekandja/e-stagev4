@@ -15,6 +15,10 @@ export class AdminListeOffreDemandeComponent implements OnInit {
   titrePage: string;
   userID: string;
   noData: boolean;
+  typeMin: string;
+  enAttente: boolean;
+  listeAttente: OffresDemandes[];
+  niveauAcces = localStorage.getItem('niveauAcces');
 
   constructor(private route: ActivatedRoute, private offreDemandeService: OffreDemandeService,
               private router: Router) {
@@ -24,6 +28,7 @@ export class AdminListeOffreDemandeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.userID = localStorage.getItem('userID');
     this.getOffreDemande();
   }
@@ -34,13 +39,13 @@ export class AdminListeOffreDemandeComponent implements OnInit {
       localStorage.nonAutorise = '1';
       this.router.navigate(['/']);
     } else {
-
       this.type = this.route.snapshot.paramMap.get('type');
 
       if (this.type === 'Demande') {
         if (localStorage.getItem('niveauAcces') === '111' || localStorage.getItem('niveauAcces') === '999') {
           this.titrePage = 'Demandes de stages';
           this.type = 'Demande';
+          this.typeMin = 'demande';
         } else {
           localStorage.nonAutorise = '1';
           this.router.navigate(['/']);
@@ -49,31 +54,32 @@ export class AdminListeOffreDemandeComponent implements OnInit {
         if (localStorage.getItem('niveauAcces') === '333' || localStorage.getItem('niveauAcces') === '999') {
           this.titrePage = 'Offres de stages';
           this.type = 'Offre';
+          this.typeMin = 'offre';
         } else {
           localStorage.nonAutorise = '1';
           this.router.navigate(['/']);
         }
       }
-
-      if (localStorage.getItem('niveauAcces') !== '999') {
+      if (this.niveauAcces === '111' || this.niveauAcces === '333') {
         this.offreDemandeService.getOffreDemande().subscribe(r => {
           this.liste = r;
+          this.liste = this.liste.filter(f => (f.type === this.type && f.utilisateur.id === Number(this.userID)));
           if (this.liste.length === 0) {
             this.noData = true;
-          } else {
-            this.liste = this.liste.filter(f => (f.type === this.type && f.isValider && f.utilisateur.id === Number(this.userID)));
           }
         });
-      } else {
+      } else if (this.niveauAcces === '999'){
         this.offreDemandeService.getOffreDemande().subscribe(r => {
           this.liste = r;
+          this.liste = this.liste.filter(f => f.type === this.type);
           if (this.liste.length === 0) {
             this.noData = true;
-          } else {
-            this.liste = this.liste.filter(f => (f.type === this.type && f.isValider));
           }
         });
       }
+
+
+
     }
   }
 }

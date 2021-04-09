@@ -1,14 +1,14 @@
-export interface PutOffreDemande {
+export interface NewEditOffreDemande {
   titre: string;
   type: string;
-  debutAt: any;
-  finAt: any;
-  parutionAt: any;
+  debutAt: string;
+  finAt: string;
+  parutionAt: string;
   dureeStage: string;
   description: string;
   heureParSemaine: number;
   competencesRercherchees: string;
-  isEmploiApresStage: true;
+  isEmploiApresStage: boolean;
   infoSupplementaires: string;
   programmeSuivi: string;
   autresFormations: string;
@@ -22,6 +22,6 @@ export interface PutOffreDemande {
   isSupprimer: boolean;
   isValider: boolean;
   isVedette: boolean;
-  utilisateur: string;
   secteur: string;
+  utilisateur: string;
 }

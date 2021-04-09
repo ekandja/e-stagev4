@@ -23,8 +23,8 @@
       <span class="btn btn-sm btnDetail"><a routerLink="/admin/detail/{{ attente.type }}/attente/{{ attente.id }}">Détails</a></span>
     </div>
     <div class="col-10 text-end">
-      <span class="btn btn-sm btnRefuser" >Réfuser</span>
-      <span class="btn btn-sm btnAccepter" (click)="onclickAccpeter(attente.id)">Accepter</span>
+      <span class="btn btn-sm btnRefuser" (click)="onclickMiseAJ(attente.id, 'refuser')" >Réfuser</span>
+      <span class="btn btn-sm btnAccepter" (click)="onclickMiseAJ(attente.id, 'accepter')">Accepter</span>
     </div>
   </div>
 </div>

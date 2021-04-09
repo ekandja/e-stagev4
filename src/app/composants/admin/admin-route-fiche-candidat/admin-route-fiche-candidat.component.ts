@@ -13,6 +13,9 @@ export class AdminRouteFicheCandidatComponent implements OnInit {
   id: string;
   utilisateur: Utilisateur[];
   from: string;
+  isProfil: boolean;
+  titrePage: string;
+  utilisateurUnique: Utilisateur;
 
   constructor(private route: ActivatedRoute, private utilisateurService: UtilisateurService) {
   }
@@ -29,11 +32,19 @@ export class AdminRouteFicheCandidatComponent implements OnInit {
       this.from = 'attente';
     } else if (this.from === 'liste') {
       this.from = 'liste/Demande';
+    } else if (this.from === 'profil') {
+      this.isProfil = true;
     }
 
     this.utilisateurService.getUtilisateur().subscribe(r => {
       this.utilisateur = r;
       this.utilisateur = this.utilisateur.filter(f => (f.id === Number(this.id)));
+      this.utilisateurUnique = this.utilisateur[0];
+      if (this.utilisateurUnique.isEntreprise){
+        this.titrePage = 'de l\'entreprise';
+      } else {
+        this.titrePage = 'du candidat';
+      }
     });
 
   }

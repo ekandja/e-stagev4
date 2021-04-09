@@ -1,0 +1,155 @@
+<div class="row ">
+  <div class="col-3 divMenu vh-100">
+    <app-admin-menu></app-admin-menu>
+  </div>
+  <div class="col-9">
+    <app-admin-entete></app-admin-entete>
+
+    <div class="bgPage vh-100">
+      <div class="titrePage mt-3 mb-3">
+        <span class="mx-3">{{ titrePage }}</span>
+      </div>
+
+        <div class="form-group row mb-2">
+          <label for="titreDelOffre" class="col-sm-3 col-form-label text-bold">Titre de la position</label>
+          <div class="col-sm-9">
+            <input type="text" [(ngModel)]="newOffreDemande.titre" name="titreDelOffre" class="form-control" id="titreDelOffre">
+          </div>
+        </div>
+        <form (ngSubmit)="ajoutOffreDemande()">
+          <div class="form-group row mb-2" *ngIf="ajoutDemande === 'demande'">
+            <label for="programmeSuivi" class="col-sm-3 col-form-label text-bold">Programme suivi</label>
+            <div class="col-sm-9">
+              <input type="text" name="titreDelOffre" [(ngModel)]="newOffreDemande.programmeSuivi" class="form-control" id="programmeSuivi">
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label class="col-sm-3 col-form-label text-bold">Secteur d'activité</label>
+            <div class="col-sm-9">
+              <select class="form-select" name="choixSecteur" aria-label="Default select example" [(ngModel)]="secteurID">
+                <option *ngFor="let item of tableSecteur" [value]="item.id">{{ item.titre }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="descriptionPoste" class="col-sm-3 col-form-label">Description du poste</label>
+            <div class="col-sm-9">
+              <textarea name="descriptionPoste" [(ngModel)]="newOffreDemande.description" class="form-control"
+                        id="descriptionPoste" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="form-group row mb-2" *ngIf="ajoutDemande === 'demande'">
+            <label for="autresFormations" class="col-sm-3 col-form-label">Autres formations</label>
+            <div class="col-sm-9">
+              <textarea name="competenceAcquises" [(ngModel)]="newOffreDemande.autresFormations" class="form-control"
+                        id="autresFormations" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="form-group row mb-2" *ngIf="ajoutDemande === 'demande'">
+            <label for="competenceAcquises" class="col-sm-3 col-form-label">Compétences acquises</label>
+            <div class="col-sm-9">
+              <textarea name="competenceAcquises" [(ngModel)]="newOffreDemande.competencesAcquises" class="form-control"
+                        id="competenceAcquises" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="form-group row mb-2" *ngIf="ajoutDemande === 'offre'">
+            <label for="competenceRecherchees" class="col-sm-3 col-form-label">Compétences recherchées</label>
+            <div class="col-sm-9">
+              <textarea name="competenceAcquises" [(ngModel)]="newOffreDemande.competencesRercherchees" class="form-control"
+                        id="competenceRecherchees" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group row mb-2">
+            <label for="infoSupplementaire" class="col-sm-3 col-form-label">Informations supplémentaires</label>
+            <div class="col-sm-9">
+              <textarea name="competenceAcquises" [(ngModel)]="newOffreDemande.infoSupplementaires" class="form-control"
+                        id="infoSupplementaire" rows="3"></textarea>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="dateDebut" class="col-sm-3 col-form-label">Date de début</label>
+            <div class="col-sm-3">
+              <input type="date" name="dateDebut" class="form-control" id="dateDebut" [(ngModel)]="newOffreDemande.debutAt">
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label for="dateFin" class="col-sm-3 col-form-label">Date de fin</label>
+            <div class="col-sm-3">
+              <input type="date" name="DateFin" class="form-control" id="dateFin" [(ngModel)]="newOffreDemande.finAt">
+            </div>
+          </div>
+          <div class="form-group row mb-2" *ngIf="ajoutDemande === 'offre'">
+            <label for="nbreHeureSemaine" class="col-sm-3 col-form-label">Nombre d'heures / semaine</label>
+            <div class="col-sm-3">
+              <input type="number" name="nbreHeureSemaine" class="form-control" id="nbreHeureSemaine"
+                     [(ngModel)]="newOffreDemande.heureParSemaine">
+            </div>
+          </div>
+          <div class="form-group row mb-2" *ngIf="ajoutDemande === 'offre'">
+            <label class="col-sm-3 col-form-label">Possibilité d'emploi</label>
+            <div class="col-sm-9">
+              <div class="form-check form-check-inline">
+                <input name="emploiApresStage" [(ngModel)]="newOffreDemande.isEmploiApresStage" class="form-check-input" type="radio"
+                       id="ouiEmploi" value="true">
+                <label class="form-check-label" for="ouiEmploi">Oui</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input name="emploiApresStage" [(ngModel)]="newOffreDemande.isEmploiApresStage" class="form-check-input" type="radio"
+                       id="nonEmploi" value="false">
+                <label class="form-check-label" for="nonEmploi">Non</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label class="col-sm-3 col-form-label">Type de stage</label>
+            <div class="col-sm-9">
+              <div class="form-check form-check-inline">
+                <input name="typeStage" [(ngModel)]="newOffreDemande.typeDeStage" class="form-check-input" type="radio" id="tempsPlein"
+                       value="Temps plein">
+                <label class="form-check-label" for="tempsPlein">Oui</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input name="typeStage" [(ngModel)]="newOffreDemande.typeDeStage" class="form-check-input" type="radio"
+                       id="tempsPartiel" value="Non">
+                <label class="form-check-label" for="tempsPartiel">Temps partiel</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input name="typeStage" [(ngModel)]="newOffreDemande.typeDeStage" class="form-check-input" type="radio" id="alternance"
+                       value="Alternance travail études">
+                <label class="form-check-label" for="alternance">Alternance travail études</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row mb-2">
+            <label class="col-sm-3 col-form-label">Rémunération</label>
+            <div class="col-sm-9">
+              <div class="form-check form-check-inline">
+                <input name="remuneration" [(ngModel)]="newOffreDemande.remuneration" class="form-check-input" type="radio"
+                       id="remunerationOui" value="Oui">
+                <label class="form-check-label" for="remunerationOui">Oui</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input name="remuneration" [(ngModel)]="newOffreDemande.remuneration" class="form-check-input" type="radio"
+                       id="remunerationNon" value="Non">
+                <label class="form-check-label" for="remunerationNon">Non</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input name="remuneration" [(ngModel)]="newOffreDemande.remuneration" class="form-check-input" type="radio"
+                       id="remunerationDis"
+                       value="À la discrétion de l'entreprise">
+                <label class="form-check-label" for="remunerationDis">À la discrétion de l'entreprise</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row mt-3 text-end">
+            <div class="col-sm-3 offset-9">
+              <button class="btn btn-primary">Envoyer</button>
+            </div>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+
+

@@ -1,8 +1,8 @@
 <div class="detailDemande">
   <div class="titrePage">
-    Fiche du candidat
+    Fiche {{ titrePage }}
   </div>
-  <div class="retourAlaListe mt-3">
+  <div class="retourAlaListe mt-3" *ngIf="!isProfil">
     <button class="btn btn-sm btn-secondary"><a routerLink="/admin/{{ from }}">Retour à la liste</a> </button>
   </div>
   <div class="btnAccepterRefuser">
@@ -10,20 +10,26 @@
     <span class="btn btn-sm btnEditerSupprimer btnSupprier"><i class="fas fa-window-close text-danger mx-2"></i>Supprimer</span>
   </div>
   <div class="divTitreStage mt-3 mb-4">
-    <div><span class="iconTitre"><i class="fas fa-user-graduate"></i></span> <span
+    <div *ngIf="niveauAccess === '111'"><span class="iconTitre"><i class="fas fa-user-graduate"></i></span> <span
       class="titreStage">{{ candidat.prenom }} {{ candidat.nom }}</span></div>
+    <div  *ngIf="niveauAccess === '333'"><span class="iconTitre"><i class="fas fa-building"></i></span> <span
+      class="titreStage">{{ candidat.nomEntreprise }}</span></div>
+    <div  *ngIf="niveauAccess === '999'"><span class="iconTitre"><i class="fas fa-user-cog"></i></span> <span
+      class="titreStage">Administrateur</span></div>
   </div>
+
   <table class="table table-bordered ">
     <tbody>
-    <tr>
-      <th scope="row" class="tableTitre">Nom et prénom du stagiaire:</th>
+    <tr *ngIf="niveauAccess !== '999'">
+      <th scope="row" class="tableTitre" *ngIf="!candidat.isEntreprise">Nom et prénom du stagiaire:</th>
+      <th scope="row" class="tableTitre" *ngIf="candidat.isEntreprise">Nom et prénom du responsable:</th>
       <td class="tableContenu">{{ candidat.prenom }} {{ candidat.nom }}</td>
     </tr>
-    <tr>
+    <tr *ngIf="!candidat.isEntreprise && niveauAccess !== '999' ">
       <th scope="row" class="tableTitre">Établissement scolaire:</th>
       <td class="tableContenu">{{ candidat.etablissement }}</td>
     </tr>
-    <tr>
+    <tr *ngIf="!candidat.isEntreprise && niveauAccess !== '999'">
       <th scope="row" class="tableTitre">Programme de formation:</th>
       <td class="tableContenu">{{ candidat.programmeSuivi }}</td>
     </tr>
@@ -46,11 +52,14 @@
 
   <form>
     <div class="form-group communiquer">
-      <label for="communiquer">Communiquer avec le candidat</label>
+      <label for="communiquer" *ngIf="!candidat.isEntreprise && niveauAccess !== '999'">Communiquer avec le candidat!</label>
+      <label for="communiquer" *ngIf="candidat.isEntreprise && niveauAccess !== '999'">Communiquer avec l'entreprise!</label>
+      <label for="communiquer" *ngIf="niveauAccess === '999'">Communiquer avec nous!</label>
+
       <textarea class="form-control" id="communiquer" rows="6"></textarea>
     </div>
-    <div class="text-right">
-      <button type="button" class="btn btn-primary btn-sm">Envoyer</button>
+    <div class="text-end mt-2 mb-2">
+      <button type="button" class="btn btn-primary">Envoyer</button>
     </div>
   </form>
 

@@ -6,9 +6,9 @@
     </div>
     <ng-template #etudiant>
       <h6
-        class="card-subtitle mb-2 text-muted">{{ offreDemandeCarte.utilisateur.nom }} {{ offreDemandeCarte.utilisateur.nom }}</h6>
+        class="card-subtitle mb-2 text-muted">{{ offreDemandeCarte.utilisateur.prenom }} {{ offreDemandeCarte.utilisateur.nom }}</h6>
     </ng-template>
-    <p class="card-text">{{ offreDemandeCarte.description }}</p>
+    <p class="card-text">{{ offreDemandeCarte.descriptionPosteRecherche }}</p>
     <a routerLink="/detail_offre_demande/{{offreDemandeCarte.type}}/{{ offreDemandeCarte.id }}" class="card-link">Détails</a>
     <a href="mailto:{{ offreDemandeCarte.utilisateur.courriel }}" *ngIf="offreDemandeCarte.type == 'Offre'; else demandeur" class="card-link btn btnPostuler" >Postuler</a>
     <ng-template #demandeur>

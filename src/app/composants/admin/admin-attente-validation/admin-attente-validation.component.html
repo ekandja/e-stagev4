@@ -5,16 +5,22 @@
   <div class="row mt-4">
     <div class="col-6">
       <div class="titreOffreDemande">Demandes de stage <i class="fas fa-level-down-alt"></i></div>
+      <div class="alert alert-info" role="alert" *ngIf="isDemandeExist === false">
+        <strong>Pas de demandes de stage en attente!</strong>
+      </div>
       <div class="listeDemande">
-        <ng-container *ngFor="let demande of offreDemandeAttente">
-          <app-admin-offre-demande-attente [attente]="demande" *ngIf="demande.type === 'Demande'"></app-admin-offre-demande-attente>
+        <ng-container *ngFor="let demande of demande">
+          <app-admin-offre-demande-attente [attente]="demande" ></app-admin-offre-demande-attente>
         </ng-container>
       </div>
     </div>
     <div class="col-6">
       <div class="titreOffreDemande">Offres de stage de stage <i class="fas fa-level-down-alt"></i></div>
-      <ng-container *ngFor="let demande of offreDemandeAttente">
-        <app-admin-offre-demande-attente [attente]="demande" *ngIf="demande.type === 'Offre'"></app-admin-offre-demande-attente>
+      <div class="alert alert-info" role="alert" *ngIf="isOffreExist === false">
+        <strong>Pas d'offres de stage en attente!</strong>
+      </div>
+      <ng-container *ngFor="let offre of offre">
+        <app-admin-offre-demande-attente [attente]="offre" ></app-admin-offre-demande-attente>
       </ng-container>
     </div>
   </div>

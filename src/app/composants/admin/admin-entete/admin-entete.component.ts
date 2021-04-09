@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-admin-entete',
@@ -12,8 +12,12 @@ export class AdminEnteteComponent implements OnInit {
   prenom: string;
   role: string;
   niveauAcces: string;
+  userID: string
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private route: ActivatedRoute) {
+    this.route.paramMap.subscribe(params => {
+      this.ngOnInit();
+    })
   }
 
   ngOnInit(): void {
@@ -38,6 +42,7 @@ export class AdminEnteteComponent implements OnInit {
       }
 
       this.niveauAcces = localStorage.getItem('niveauAcces');
+      this.userID = localStorage.getItem('userID');
     }
   }
 

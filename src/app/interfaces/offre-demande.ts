@@ -12,8 +12,9 @@ export interface OffresDemandes {
   description: string;
   heureParSemaine: number;
   competencesRercherchees: string;
-  isEmploiApresStage: true;
+  isEmploiApresStage: any;
   infoSupplementaires: string;
+  programmeSuivi: string;
   autresFormations: string;
   competencesAcquises: string;
   descriptionPosteRecherche: string;

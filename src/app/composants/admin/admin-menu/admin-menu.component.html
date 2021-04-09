@@ -2,6 +2,7 @@
 <nav class="nav flex-column">
   <span class="logoMenu text-center mb-5"><a class="nav-link" routerLink="/">eStage</a></span>
   <a class="nav-link" routerLink="/admin/attente" *ngIf="niveauAcces === '999'"><i class="fas fa-home me-3"></i>Accueil</a>
+  <a class="nav-link" routerLink="/admin/fiche/profil/{{ userID }}" *ngIf="niveauAcces === '333' || niveauAcces === '111'"><i class="fas fa-home me-3"></i>Accueil</a>
   <a class="nav-link" routerLink="/admin/liste/Offre" *ngIf="niveauAcces === '999' || niveauAcces === '333'"><i class="fas fa-arrow-circle-right me-3"></i>Offres de stage</a>
   <a class="nav-link" routerLink="/admin/liste/Demande" *ngIf="niveauAcces === '999' || niveauAcces === '111'"><i class="fas fa-arrow-circle-left me-3"></i>Demande de stage</a>
   <a class="nav-link" routerLink="/admin/carte/listeCandidat" *ngIf="niveauAcces === '999'"><i class="fas fa-user-graduate me-3"></i>Candidats</a>
