@@ -20,7 +20,7 @@ export class OffreDemandeService {
   constructor(private http: HttpClient) { }
 
   getOffreDemande(): Observable<OffresDemandes[]> {
-    return this.http.get<OffresDemandes[]>(this.offreDemandeApi);
+    return this.http.get<OffresDemandes[]>(this.offreDemandeApi, httpOptions);
   }
 
   addOffreDemande(offreDemande: NewEditOffreDemande): Observable<NewEditOffreDemande> {
