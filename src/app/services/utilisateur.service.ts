@@ -5,7 +5,7 @@ import {Utilisateur} from '../interfaces/utilisateur';
 import {NewEditUtilisateur} from '../interfaces/new-edit-utilisateur';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })
 };
 
 @Injectable({
