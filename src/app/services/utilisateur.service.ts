@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class UtilisateurService {
 
-  utilisateurApi = 'http://64.227.82.26:8000/api/utilisateurs';
+  utilisateurApi = 'https://64.227.82.26:8000/api/utilisateurs';
   utilisateur: Utilisateur;
   newEditUtilisateur: NewEditUtilisateur;
 
