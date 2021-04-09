@@ -8,7 +8,7 @@ import {Observable} from 'rxjs';
 })
 export class SecteurService {
 
-  secteurApi = 'https://64.227.82.26:8000/api/secteurs';
+  secteurApi = 'https://biteyelo.com/api/secteurs';
 
   constructor(private http: HttpClient) { }
 

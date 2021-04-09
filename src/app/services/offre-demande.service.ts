@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class OffreDemandeService {
 
-  offreDemandeApi = 'https://64.227.82.26:8000/api/offre_demandes';
+  offreDemandeApi = 'https://biteyelo.com/api/offre_demandes';
 
   constructor(private http: HttpClient) { }
 
