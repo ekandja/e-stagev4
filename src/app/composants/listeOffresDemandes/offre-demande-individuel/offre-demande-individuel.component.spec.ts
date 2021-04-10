@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import {OffresDemandes} from '../../../interfaces/offre-demande';
 import { OffreDemandeIndividuelComponent } from './offre-demande-individuel.component';
 
 describe('OffreDemandeIndividuelComponent', () => {

@@ -7,7 +7,6 @@ import {NousContacterComponent} from './composants/nous-contacter/nous-contacter
 import {ConfidentialiteComponent} from './composants/confidentialite/confidentialite.component';
 import {ConnexionComponent} from './composants/connexion/connexion.component';
 import {ToutesOffresDemandesComponent} from './composants/listeOffresDemandes/toutes-offres-demandes/toutes-offres-demandes.component';
-import {OffreDemandeResolver} from './resolvers/offre-demande.resolver';
 import { PageDeLOffreDemandeComponent } from './composants/detailOffreDemande/page-de-loffre-demande/page-de-loffre-demande.component';
 import {OffresParSecteurComponent} from './composants/listeOffresDemandes/offres-par-secteur/offres-par-secteur.component';
 import {AdminRouteAttenteComponent} from './composants/admin/admin-route-attente/admin-route-attente.component';
@@ -20,10 +19,8 @@ import {AdminAjoutEditOffreDemandeComponent} from './composants/admin/admin-ajou
 import {AdminModifOffreDemandeComponent} from './composants/admin/admin-modif-offre-demande/admin-modif-offre-demande.component';
 
 const routes: Routes = [
-  {path: '', component: AccueilComponent, resolve: {'': OffreDemandeResolver}},
-  {path: 'offres_demandes/:type', component: ToutesOffresDemandesComponent, resolve: {
-      'offres_demandes/:type': OffreDemandeResolver
-    }},
+  {path: '', component: AccueilComponent},
+  {path: 'offres_demandes/:type', component: ToutesOffresDemandesComponent},
   {path: 'offres_par_secteur/:id', component: OffresParSecteurComponent},
   {path: 'detail_offre_demande/:type/:id', component: PageDeLOffreDemandeComponent},
   {path: 'apropos', component: AproposComponent},
@@ -45,6 +42,7 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled', onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
+
 })
 
 // @ts-ignore

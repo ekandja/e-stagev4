@@ -17,7 +17,7 @@ export class AdminEnteteComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) {
     this.route.paramMap.subscribe(params => {
       this.ngOnInit();
-    })
+    });
   }
 
   ngOnInit(): void {

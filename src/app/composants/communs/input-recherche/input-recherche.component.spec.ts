@@ -23,3 +23,4 @@ describe('InputRechercheComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

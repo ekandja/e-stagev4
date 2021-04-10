@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule} from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
+import {LocationStrategy, HashLocationStrategy} from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { AccueilComponent } from './composants/accueil/accueil.component';
@@ -30,7 +31,6 @@ import {FormsModule} from '@angular/forms';
 import {OffreDemandeService} from './services/offre-demande.service';
 import {SecteurService} from './services/secteur.service';
 import {UtilisateurService} from './services/utilisateur.service';
-import {OffreDemandeResolver} from './resolvers/offre-demande.resolver';
 import {SecteursDactiviteComponent} from './composants/communs/secteurs-dactivite/secteurs-dactivite.component';
 import { OffresParSecteurComponent } from './composants/listeOffresDemandes/offres-par-secteur/offres-par-secteur.component';
 import { InputRechercheComponent } from './composants/communs/input-recherche/input-recherche.component';
@@ -124,7 +124,7 @@ import { AdminModifOffreDemandeComponent } from './composants/admin/admin-modif-
     HttpClientModule,
     ClickOutsideModule
   ],
-  providers: [OffreDemandeService, SecteurService, UtilisateurService, OffreDemandeResolver],
+  providers: [OffreDemandeService, SecteurService, UtilisateurService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

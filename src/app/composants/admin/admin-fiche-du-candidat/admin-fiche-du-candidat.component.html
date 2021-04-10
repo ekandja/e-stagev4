@@ -50,7 +50,7 @@
   </table>
 
 
-  <form>
+  <div *ngIf="niveauAccess === '999'">
     <div class="form-group communiquer">
       <label for="communiquer" *ngIf="!candidat.isEntreprise && niveauAccess !== '999'">Communiquer avec le candidat!</label>
       <label for="communiquer" *ngIf="candidat.isEntreprise && niveauAccess !== '999'">Communiquer avec l'entreprise!</label>
@@ -61,7 +61,7 @@
     <div class="text-end mt-2 mb-2">
       <button type="button" class="btn btn-primary">Envoyer</button>
     </div>
-  </form>
+  </div>
 
 
 </div>

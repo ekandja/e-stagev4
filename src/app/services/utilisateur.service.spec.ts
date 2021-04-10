@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import {Observable} from 'rxjs';
 
 import { UtilisateurService } from './utilisateur.service';
 

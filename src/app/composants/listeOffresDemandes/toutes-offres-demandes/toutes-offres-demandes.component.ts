@@ -45,12 +45,12 @@ export class ToutesOffresDemandesComponent implements OnInit {
       this.messageType = 'Demandes de stage';
       this.filtreType = 'Demande';
     }
-    this.i = 3;
+    this.i = 4;
 
     this.offreDemandeService.getOffreDemande().subscribe(r => {
       this.offreDemande = r;
-      this.offreDemande = this.offreDemande.filter(f => ((f.type === this.filtreType )));
-      this.offreDemandeCarte = this.offreDemande.slice(this.offreDemande.length - this.i, this.offreDemande.length - 1);
+      this.offreDemande = this.offreDemande.filter(f => ((f.type === this.filtreType && f.isValider && f.isSupprimer === false )));
+      this.offreDemandeCarte = this.offreDemande.slice(this.offreDemande.length - this.i, this.offreDemande.length);
       this.offreDemande = this.offreDemande.slice(this.offreDemande.length - this.i, this.offreDemande.length);
     });
   }
@@ -66,7 +66,7 @@ export class ToutesOffresDemandesComponent implements OnInit {
       this.i = this.i + 3;
       this.offreDemande = r;
       this.offreDemande = this.offreDemande.filter(f => ((f.type === this.filtreType )));
-      this.offreDemandeCarte = this.offreDemande.slice(this.offreDemande.length - this.i, this.offreDemande.length - 1);
+     // this.offreDemandeCarte = this.offreDemande.slice(this.offreDemande.length - this.i, this.offreDemande.length - 1);
       this.offreDemande = this.offreDemande.slice(this.offreDemande.length - this.i, this.offreDemande.length - 1);
       window.scroll(0, 360);
     });

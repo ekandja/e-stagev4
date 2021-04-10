@@ -7,7 +7,10 @@ import {NewEditOffreDemande} from '../interfaces/new-edit-offre-demande';
 
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Methods': 'POST,GET,OPTIONS, PUT, DELETE',
+    'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Authorization, X-Requested-With'})
 };
 
 @Injectable({
@@ -15,16 +18,17 @@ const httpOptions = {
 })
 export class OffreDemandeService {
 
-  offreDemandeApi = 'https://biteyelo.com/api/offre_demandes';
+  offreDemandeApi = 'https://biteyelo.com:8000/api/offre_demandes';
+  // offreDemandeApi = 'http://localhost:8000/api/offre_demandes';
 
   constructor(private http: HttpClient) { }
 
   getOffreDemande(): Observable<OffresDemandes[]> {
-    return this.http.get<OffresDemandes[]>(this.offreDemandeApi, httpOptions);
+    return this.http.get<OffresDemandes[]>(this.offreDemandeApi);
   }
 
   addOffreDemande(offreDemande: NewEditOffreDemande): Observable<NewEditOffreDemande> {
-    return this.http.post<NewEditOffreDemande>(this.offreDemandeApi, offreDemande, httpOptions);
+    return this.http.post<NewEditOffreDemande>(this.offreDemandeApi, offreDemande);
   }
 
   deleteOffreDemande(id: string): Observable<OffresDemandes>  {
@@ -32,7 +36,7 @@ export class OffreDemandeService {
   }
 
   updateOffreDemande(updateOffreDemande: NewEditOffreDemande, id): Observable<any>{
-    return this.http.put<NewEditOffreDemande>(this.offreDemandeApi  + '/' + id, updateOffreDemande, httpOptions);
+    return this.http.put<NewEditOffreDemande>(this.offreDemandeApi  + '/' + id, updateOffreDemande);
   }
 
 
