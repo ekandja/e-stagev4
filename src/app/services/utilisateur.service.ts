@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class UtilisateurService {
 
-  utilisateurApi = 'https://biteyelo.com:8000/api/utilisateurs';
+  utilisateurApi = 'http://biteyelo.com/api/utilisateurs';
   // utilisateurApi = 'http://localhost:8000/api/utilisateurs';
   utilisateur: Utilisateur;
 
